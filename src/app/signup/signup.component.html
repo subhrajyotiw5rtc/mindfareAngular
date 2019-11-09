@@ -1,0 +1,45 @@
+<div class="container" style="display: block;">
+    <div class="row">
+      <div class="col-md-12 text-center login-header" style="padding:40px 0px;">
+  
+      </div>
+      <!--/span-->
+    </div><!--/row-->
+    <div class="col-md-6 marginautodiv floatnonediv well">
+      <div class="totalaligndiv">
+        <div class="alert alert-info text-center">
+          <img src="../assets/img/blank.png"  style="width:100px; height:auto"/>
+          <BR>
+          Please Register with your Mobile Email and Password.
+        </div>
+          <form class="form-horizontal"  id="frmlogin"  autocomplete="off">
+            <fieldset>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" name="txtname" id="txtname" class="form-control" placeholder="User name" [(ngModel)]="txtname">
+                </div>
+                <div class="clearfix"></div><br>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" name="txtemail" id="txtemail" class="form-control" placeholder="Email" [(ngModel)]="txtemail">
+                </div>
+                <div class="clearfix"></div><br>
+  
+                <div class="input-group input-group-lg" ng-show="viewpasswd">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="pwd" id="txtpwd" class="form-control" placeholder="Password" [(ngModel)]="txtpwd">
+                </div>
+                <div class="clearfix"></div><br>
+                <div class="input-prepend">
+                </div>
+                <div class="clearfix"></div>
+  
+                <p class="text-center tbpaddingdiv2" ng-show="viewloginbtn" >
+                <button type="text" name="user_login" id="user_login" class="btn btn-primary"  style="width:270px;" (click)="userSignup()">Register</button>
+                </p>
+                <p class="message">Already Joined? <a routerLink="/login">Signin</a></p>
+            </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>

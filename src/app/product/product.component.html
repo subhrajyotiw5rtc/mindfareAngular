@@ -1,0 +1,131 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 form-group" style="background-color:#0067cd;color:white;">
+        Product manager
+        <a href="/login" class="btn btn-info btn-lg float-right" style="margin-left:911px;">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 form-group text-center" style="background-color:#dddddd;color:black;">
+        product count {{ count }}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12" style="padding:0px;">
+        <div class="portlet portlet-green">
+          <div class="portlet-heading">
+            <div class="portlet-title" id="SHOWINFO">
+              <h4><i class="fa fa-exchange fa-fw"></i> Add & Update Product</h4>
+            </div>
+            <div class="portlet-widgets">
+              <!--<a data-toggle="collapse" data-parent="#accordion" href="#transactionsPortlet"><i class="fa fa-chevron-down"></i></a>-->
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        <form class="form-horizontal"  id="frmlogin"  autocomplete="off">
+            <div id="SHOWDATA">
+                <div id="transactionsPortlet" class="">
+                  <div class="portlet-body">
+                    <div class="totalaligndiv">
+  
+                      <div class="col-md-6">
+                        <div class="input-group bmargindiv1 col-md-12">
+                          <span class="input-group-addon ndrftextwidth text-right oditek-form" style="width:180px">Name :</span>
+                          <input type="text" name="pname" id="pname" class="form-control oditek-form" placeholder="Add Product Name" [(ngModel)]="txtname">
+                        </div>
+                        <div class="input-group bmargindiv1 col-md-12">
+                          <span class="input-group-addon ndrftextwidth text-right oditek-form" style="width:180px">Price:</span>
+                          <input type="text" name="price" id="price" class="form-control oditek-form" placeholder="Add Price" [(ngModel)]="txtprice">
+                        </div>
+                      </div>
+  
+                      <div class="col-md-6">
+                        <div class="input-group bmargindiv1 col-md-12">
+                          <span class="input-group-addon ndrftextwidth text-right oditek-form" style="width:180px">Rating :</span>
+                          <input type="number" name="rating" id="rating" class="form-control oditek-form" placeholder="Add Rating" [(ngModel)]="txtrating">
+                        </div>
+  
+                      </div>
+  
+                      <div class="clearfix"></div>
+                      <div style="text-align:center; padding-top:10px;">
+                        <input type="button" class="btn btn-success"  id="addProfileData" *ngIf="isSaveShown" value="save" (click)="save()" />
+                        <input type="button" class="btn btn-success"  id="addProfileData" *ngIf="isEditShown" value="Update" (click)="update()" />
+                        <input type="hidden" name="pid" id="pid" class="form-control oditek-form" [(ngModel)]="pid">
+  
+                      </div>
+  
+                      <div class="clearfix"></div>
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </form>
+        </div>
+      </div>
+      <!-- /.col-lg-12 -->
+
+    </div>
+  </div>
+
+  <div class="container" style="padding:0px;">
+    <div class="portlet portlet-blue" style="margin-bottom:12px;">
+      <div class="portlet-heading">
+        <div class="portlet-title" id="SHOWINFO">
+          <h4><i class="fa fa-list fa-fw"></i>List of Product </h4>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="portlet-body">
+        <div class="table-responsive dashboard-demo-table">
+          <table class="table table-bordered table-striped table-hover" id="dataTable">
+            <colgroup style="width:150px;">
+                <col class="col-md-1 col-sm-1">
+                <col class="col-md-1 col-sm-1">
+                <col class="col-md-1 col-sm-1">
+                <col class="col-md-1 col-sm-1">
+                <col class="col-md-1 col-sm-1">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Sl. No</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Edit</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+
+            <tbody id="detailsstockid">
+              <tr *ngFor="let pro of listOfProduct; index as i">
+                <td>{{i+1}}</td>
+                <td>{{pro.name}}</td>
+                <td>{{pro.price}}</td>
+                <td>{{pro.rating}}</td>
+                <td>
+                  <a href='javascript: void(0);'>
+                    <input type='button' class='btn btn-xs btn-green' value='Edit' (click)="edit(pro._id)">
+                  </a>
+                </td>
+                <td>
+                  <a href='javascript: void(0);'>
+                    <input type='button' class='btn btn-xs btn-red' value='Remove' (click)="delete(pro._id)">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
